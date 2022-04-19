@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        font-family: sans-serif;
+    }
+    .wrap{
+        min-width: 20em;
+    }
+    table{        
+        border-collapse: collapse;
+    }
+    th{
+        text-decoration: double;
+    }
+    th, tr, td{
+        padding: 10px;        
+        border: 1px solid;
+    }
+    h2, h4{
+        display: flex;
+        flex-direction: column;        
+    }    
+    button{
+        background: #FFCC00;
+        color: black;
+        border-radius: 5px;
+        margin: 5px 0px;
+        border:none;
+        padding: 5px;
+    }
+    button:hover{
+        background: #CC9933;
+    }
+</style>
+<body>
+    <div class="wrap">
+        <h2>
+            <div>
+                Month PNL:
+            </div>
+            <p id="mPNL">
+                0
+            </p>
+        </h2>
+        <h4>
+            <div>Day PNL:</div>
+            <p id="tPNL">
+                0
+            </p>
+        </h4>            
+        <table id="orders" style="display: none;">
+            <tr>
+                <th>
+                    btcAmount
+                </th>
+                <th>
+                    fiatAmount
+                </th>                
+                <th>
+                    Order Status
+                </th>
+                <th>
+                    Date
+                </th>
+            </tr>
+        </table>
+        <div>
+            <input type="text" pattern="[0-9]*" name="" id="tid" placeholder="Transaction Id">
+            <button id="tdf">
+                Delete
+            </button>
+        </div>
+    </div>
+</body>
+<script src="./popup.js"></script>
+</html>

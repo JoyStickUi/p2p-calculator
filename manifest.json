@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+    "name": "PNLCalc",
+    "version": "1.0",
+    "icons": {
+        "1": "common.blocks/img.jpg"
+    },
+    "content_scripts": [
+        {
+            "run_at": "document_end",
+            "matches": ["*://*/*"],
+            "js": ["common.blocks/app/app.js"]
+        }
+    ],
+    "background": {
+        "scripts": ["common.blocks/background/background.js"]
+    },   
+    "permissions": [
+        "tabs", "<all_urls>"
+    ],
+    "browser_action": {
+        "default_title": "P2P PNL Calculator",
+        "default_icon": "common.blocks/img.jpg",
+        "default_popup": "common.blocks/popup/popup.html"
+    }
+}
