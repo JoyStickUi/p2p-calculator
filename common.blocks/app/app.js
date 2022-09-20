@@ -4,7 +4,7 @@ chrome.runtime.onConnect.addListener(function(port) {
     let orderAction = document.querySelectorAll('div.css-1w7386o > .css-1hnat5q, div.css-1w7386o > div.css-liog5w');
     let orderDate = document.querySelectorAll('div.css-1w7386o > div.css-fhtmef');
     let orderId = document.querySelectorAll('div.css-1f9551p > a.gjmJkE');
-    let orderStatus = document.querySelectorAll('div.css-j4h787 > p.css-1jq4ozh');
+    let orderStatus = document.querySelectorAll('div.css-6eo6q9 > p.css-1jq4ozh');
 
     let orders = [];
 

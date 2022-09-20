@@ -92,6 +92,39 @@ function calcPNL(orders){
     tpnl.innerHTML = tsummary + " RUB";
 }
 
+document.getElementById("thatDayPnl").addEventListener("click", ()=>{
+    let thatDate = new Date(document.getElementById("calendar").value);
+
+    let thatDayOrders = orders.filter((order)=>{
+        return (new Date(order.orderDate)).getDate() == thatDate.getDate() &&
+        (new Date(order.orderDate)).getMonth() == thatDate.getMonth() &&
+        (new Date(order.orderDate)).getFullYear() == thatDate.getFullYear() &&
+        order.orderStatus == "Завершено";
+    });
+
+    let dsummary = 0;
+
+    for(let order of thatDayOrders){
+        let num = Number.parseInt(order.fiatAmount.replaceAll(",", "").split(".")[0]);
+
+        if(order.orderAction == "Продать"){
+            dsummary += num;
+        }else{
+            dsummary -= num;
+        }
+    }
+
+    let tdpnl = document.getElementById("thatDayPnlView");
+
+    if(dsummary > 0){
+        tdpnl.style.color = "green";
+    }else{
+        tdpnl.style.color = "red";
+    }
+
+    tdpnl.innerHTML = dsummary + " RUB";
+});
+
 document.addEventListener("keydown", (event)=>{
     if(event.key == "d"){
         localStorage.clear();
@@ -99,7 +132,3 @@ document.addEventListener("keydown", (event)=>{
 });
 
 //-------------------------------------------------------------------------------------------
-
-document.getElementById("tdf").addEventListener("click", ()=>{
-    document.getElementById("tdf").value = "+" + document.getElementById("tid").value;
-});
